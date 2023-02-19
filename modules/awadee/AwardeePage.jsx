@@ -8,6 +8,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { useState } from "react";
+import ReactDropdown from "react-dropdown";
 
 // export const databaseId = '535d3dbfb89c4069bb1d8392e3a03976';
 const AwardeeCard = ({ data }) => {
@@ -70,6 +71,30 @@ export default function AwardeePage({ posts, filter }) {
     });
     setAwardeeList(awardeeNew);
   };
+  const options = [
+    "Magister Dalam Negeri",
+    "Magister Luar Negeri",
+    "Doktor Dalam Negeri",
+    "Doktor Luar Negeri",
+    "All",
+  ];
+
+  const handleProgram = (e) => {
+    let awardeeTemp = posts;
+    let awardeeNew = [];
+    awardeeTemp.map((item) => {
+      if (item.properties.Program.multi_select[0].name.includes(e)) {
+        awardeeNew.push(item);
+      }
+    });
+    if (e === "All") {
+      setAwardeeList(posts);
+    } else {
+      setAwardeeList(awardeeNew);
+    }
+
+    console.log(e);
+  };
 
   return (
     <div>
@@ -79,11 +104,18 @@ export default function AwardeePage({ posts, filter }) {
       </Head>
       <Header />
       <main className="pt-64 px-12">
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <input
             placeholder="Cari Awardee"
-            className="border rounded p-2 w-3/4 focus:outline-none"
+            className="border rounded p-2 sm:w-3/4 focus:outline-none"
             onChange={(e) => handleSearch(e.target.value)}
+          />
+          <ReactDropdown
+            className="sm:w-1/4 !rounded cursor-pointer"
+            options={options}
+            onChange={(e) => handleProgram(e.value)}
+            value="Pilih Program"
+            placeholder="Select an option"
           />
           {/* <select name="cars" className="w-1/4 rounded p-2 focus:outline-none cursor-pointer" placeholder="Program">
             <option disabled>Program</option>
@@ -100,8 +132,18 @@ export default function AwardeePage({ posts, filter }) {
           {awardeeList.map((post) => (
             <AwardeeCard data={post} key={post.id} />
           ))}
-          {/* </div> */}
         </div>
+        {awardeeList.length === 0 && (
+          <div className="text-center">
+            <Image
+              src="/img/awardee_not_found.png"
+              height={350}
+              width={350}
+              alt="logo"
+            />
+            <h1 className="mt-4 text-2xl text-red-500">Awardee yang anda cari tidak ditemukan</h1>
+          </div>
+        )}
       </main>
     </div>
   );
