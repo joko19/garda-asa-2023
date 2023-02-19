@@ -13,7 +13,7 @@ function Banner() {
           Gelorakan <span className="text-yellow-500">ASA</span> untuk Indonesia
           raya!
         </div>
-        <p className="w-1/2 text-gray-500">
+        <p className="sm:w-1/2 sm:p-0 p-4 text-gray-500">
           Perayaan satu langkah lagi dari kemajuan edukasi bagi putra-putri
           Indonesia. Selebrasi luhurnya visi dan mimpi, diekspresikan dengan
           aksi menyebarkan semangat perjuangan bagi antar Awardee maupun
