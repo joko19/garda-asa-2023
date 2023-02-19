@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
 import { getDatabase } from "../lib/notion";
-import { Text } from "./lesson/[slug].js";
 // import styles from "./index.module.css";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
