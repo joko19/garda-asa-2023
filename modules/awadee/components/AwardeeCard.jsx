@@ -23,7 +23,7 @@ export const AwardeeCard = ({ data }) => {
           height={100}
           className={clsx(
             "lg:w-[7vw] lg:h-[7vw] absolute lg:-top-[3.5vw] left-5 rounded-full",
-            "w-[15vw] h-[15vw] -top-[8vw]"
+            "w-[24vw] h-[24w] -top-[8vw]"
           )}
         />
       ) : (
@@ -33,7 +33,7 @@ export const AwardeeCard = ({ data }) => {
           height={100}
           className={clsx(
             "lg:w-[7vw] lg:h-[7vw] absolute lg:-top-[3.5vw] left-5 rounded-full",
-            "w-[15vw] h-[15vw] -top-[8vw]"
+            "w-[24vw] h-[24vw] -top-[8vw]"
           )}
           alt="logo"
         />
