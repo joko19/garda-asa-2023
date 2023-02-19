@@ -4,7 +4,7 @@ import Image from "next/image";
 function Banner() {
   return (
     <div className="flex flex-col-reverse sm:flex-row gap-2 justify-between items-center bg-gray-50 sm:pt-32 sm:px-20 pt-24 pb-12">
-      <div className="sm:text-right text-center">
+      <div className="sm:text-left text-center">
         <div className="sm:text-5xl text-2xl text-red-500 items-center">
           <span className="font-bold text-orange-500 ">
             Garda ASA

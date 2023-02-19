@@ -2,6 +2,8 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Banner from "./components/Banner";
+import StudentArea from "./components/StudentArea";
+import TotalAwardee from "./components/TotalAwardee";
 
 function LandingPage() {
   const [isTransparent, setIsTransparent] = useState(true);
@@ -44,6 +46,8 @@ function LandingPage() {
       <Header transparent={isTransparent} isNotSticky bgOnly />
       <main>
         <Banner />
+        <TotalAwardee/>
+        <StudentArea/>
       </main>
     </>
   );
