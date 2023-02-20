@@ -2,6 +2,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import { useState } from "react";
 import { SlOptionsVertical } from "react-icons/sl";
+import {FiMenu} from 'react-icons/fi'
 
 function Header({ transparent, isNotSticky, bgOnly }) {
   const [active, setActive] = useState(false);
@@ -29,7 +30,7 @@ function Header({ transparent, isNotSticky, bgOnly }) {
         </a>
       </Link>
       
-      <SlOptionsVertical onClick={handleClick} className="sm:hidden" />
+      <FiMenu onClick={handleClick} className="sm:hidden text-white text-2xl" />
       {/*Note that in this div we will use a ternary operator to decide whether or not to display the content of the div  */}
       <div
         className={`${
