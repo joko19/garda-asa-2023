@@ -6,6 +6,7 @@ import {
   FaTwitter,
   FaFacebookSquare,
 } from "react-icons/fa";
+import Link from "next/link";
 
 export const AwardeeCard = ({ data }) => {
   return (
@@ -55,6 +56,26 @@ export const AwardeeCard = ({ data }) => {
         </div>
         <div className="lg:text-md sm-only:text-sm">
           {data.properties.university.rich_text[0].plain_text}
+        </div>
+        <div className="flex gap-2 mt-1">
+          {data.properties.instagram.rich_text.length > 0 ? (
+            <Link href={data.properties.instagram.rich_text[0].plain_text}>
+              <a target="_blank">
+                <FaInstagram />
+              </a>
+            </Link>
+          ) : (
+            <Link href="https://instagram.com/lpdp_ri">
+              <a target="_blank">
+                <FaInstagram />
+              </a>
+            </Link>
+          )}
+          <Link href="https://id.linkedin.com/company/lembaga-pengelola-dana-pendidikan">
+              <a target="_blank">
+                <FaLinkedinIn />
+              </a>
+            </Link>
         </div>
       </div>
     </div>

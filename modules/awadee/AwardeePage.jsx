@@ -29,7 +29,7 @@ export default function AwardeePage({ posts, filter }) {
     let awardeeTemp = posts;
     let awardeeNew = [];
     awardeeTemp.map((item) => {
-      if (item.properties.name.title[0].plain_text.includes(e)) {
+      if (item.properties.name.title[0].plain_text.toLowerCase().includes(e.toLowerCase())) {
         awardeeNew.push(item);
       }
     });
