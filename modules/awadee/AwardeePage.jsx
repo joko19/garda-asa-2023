@@ -7,29 +7,25 @@ import ReactDropdown from "react-dropdown";
 import { AwardeeCard } from "./components/AwardeeCard";
 
 function compare(a, b) {
-  if (
-    a.properties.name.title[0].plain_text <
-    b.properties.name.title[0].plain_text
-  ) {
+  if (a.name.title[0].plain_text < b.name.title[0].plain_text) {
     return -1;
   }
-  if (
-    a.properties.name.title[0].plain_text >
-    b.properties.name.title[0].plain_text
-  ) {
+  if (a.name.title[0].plain_text > b.name.title[0].plain_text) {
     return 1;
   }
   return 0;
 }
 
-export default function AwardeePage({ posts, filter }) {
+export default function AwardeePage({ posts, filter, res }) {
   const [awardeeList, setAwardeeList] = useState(posts.sort(compare));
 
   const handleSearch = (e) => {
     let awardeeTemp = posts;
     let awardeeNew = [];
     awardeeTemp.map((item) => {
-      if (item.properties.name.title[0].plain_text.toLowerCase().includes(e.toLowerCase())) {
+      if (
+        item.name.title[0].plain_text.toLowerCase().includes(e.toLowerCase())
+      ) {
         awardeeNew.push(item);
       }
     });
@@ -42,13 +38,13 @@ export default function AwardeePage({ posts, filter }) {
     "Doktor Luar Negeri",
     "All",
   ];
-  console.log(posts)
+  // console.log(posts);
 
   const handleProgram = (e) => {
     let awardeeTemp = posts;
     let awardeeNew = [];
     awardeeTemp.map((item) => {
-      if (item.properties.Program.multi_select[0].name.includes(e)) {
+      if (item.Program.multi_select[0].name.includes(e)) {
         awardeeNew.push(item);
       }
     });
@@ -83,10 +79,10 @@ export default function AwardeePage({ posts, filter }) {
             placeholder="Select an option"
           />
         </div>
-        {/* {awardeeList.length > 0 && <div>{awardeeList.length} awardee</div>} */}
+        {awardeeList.length > 0 && <div>{awardeeList.length} awardee</div>}
         <div className="h-24" />
         <div className="grid 2xl:grid-cols-4 sm:grid-cols-3 grid-cols-1 grid-flow-row lg:gap-12 gap-4 ">
-          {awardeeList.map((post) => (
+          {awardeeList?.map((post) => (
             <AwardeeCard data={post} key={post.id} />
           ))}
         </div>

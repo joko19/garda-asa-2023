@@ -17,10 +17,10 @@ export const AwardeeCard = ({ data }) => {
         " ml-0 mr-3 mb-[60px]"
       )}
     >
-      {data.properties.image.files.length > 0 ? (
+      {data.image?.files.length > 0 ? (
         <img
-          alt={data.properties.name.title[0].plain_text}
-          src={data.properties.image.files[0].file.url}
+          alt={data.name.title[0].plain_text}
+          src={data.image.files[0].file.url}
           width={100}
           height={100}
           className={clsx(
@@ -53,21 +53,21 @@ export const AwardeeCard = ({ data }) => {
             "mt-2 mb-1.5 text-base"
           )}
         >
-          {data.properties.name.title[0].plain_text}
+          {data.name?.title[0].plain_text}
         </div>
         <div className="lg:text-md sm-only:text-sm">
-          {data.properties.university.rich_text[0].plain_text}
+          {data.university?.rich_text[0].plain_text}
         </div>
         <div className="flex gap-2 mt-1">
-          {data.properties.instagram.url && (
-            <Link href={data.properties.instagram.url}>
+          {data.instagram?.url && (
+            <Link href={data.instagram.url}>
               <a target="_blank">
                 <FaInstagram color="#FD1D1D" />
               </a>
             </Link>
           )}
-          {data.properties.linkedin.url && (
-            <Link href={data.properties.linkedin.url}>
+          {data.linkedin?.url && (
+            <Link href={data.linkedin.url}>
               <a target="_blank">
                 <FaLinkedinIn color="#0077b5" />
               </a>
