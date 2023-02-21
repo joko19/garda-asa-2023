@@ -42,6 +42,7 @@ export default function AwardeePage({ posts, filter }) {
     "Doktor Luar Negeri",
     "All",
   ];
+  console.log(posts)
 
   const handleProgram = (e) => {
     let awardeeTemp = posts;

@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 
 export const AwardeeCard = ({ data }) => {
+  
   return (
     <div
       className={clsx(
@@ -58,24 +59,20 @@ export const AwardeeCard = ({ data }) => {
           {data.properties.university.rich_text[0].plain_text}
         </div>
         <div className="flex gap-2 mt-1">
-          {data.properties.instagram.rich_text.length > 0 ? (
-            <Link href={data.properties.instagram.rich_text[0].plain_text}>
+          {data.properties.instagram.url && (
+            <Link href={data.properties.instagram.url}>
               <a target="_blank">
-                <FaInstagram />
-              </a>
-            </Link>
-          ) : (
-            <Link href="https://instagram.com/lpdp_ri">
-              <a target="_blank">
-                <FaInstagram />
+                <FaInstagram color="#FD1D1D" />
               </a>
             </Link>
           )}
-          <Link href="https://id.linkedin.com/company/lembaga-pengelola-dana-pendidikan">
+          {data.properties.linkedin.url && (
+            <Link href={data.properties.linkedin.url}>
               <a target="_blank">
-                <FaLinkedinIn />
+                <FaLinkedinIn color="#0077b5" />
               </a>
             </Link>
+          )}
         </div>
       </div>
     </div>
