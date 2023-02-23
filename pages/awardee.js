@@ -32,7 +32,7 @@ export const getStaticProps = async () => {
     profile: item.image?.files.length ? item.image.files[0].file.url : null,
     program: item.Program.multi_select.length ? item.Program.multi_select[0].name : ''
   }));
-  
+  console.log(JSON.stringify(restructuredData).length)
   return {
     props: {
       posts: restructuredData,
