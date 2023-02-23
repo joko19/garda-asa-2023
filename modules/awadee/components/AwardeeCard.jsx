@@ -9,7 +9,6 @@ import {
 import Link from "next/link";
 
 export const AwardeeCard = ({ data }) => {
-  
   return (
     <div
       className={clsx(
@@ -56,7 +55,9 @@ export const AwardeeCard = ({ data }) => {
           {data.name?.title[0].plain_text}
         </div>
         <div className="lg:text-md sm-only:text-sm">
-          {data.university?.rich_text[0].plain_text}
+          {data.university.rich_text.length
+            ? data.university?.rich_text[0].plain_text
+            : ""}
         </div>
         <div className="flex gap-2 mt-1">
           {data.instagram?.url && (
