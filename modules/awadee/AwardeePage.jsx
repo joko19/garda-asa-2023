@@ -7,10 +7,10 @@ import ReactDropdown from "react-dropdown";
 import { AwardeeCard } from "./components/AwardeeCard";
 
 function compare(a, b) {
-  if (a.name.title[0].plain_text < b.name.title[0].plain_text) {
+  if (a.name < b.name) {
     return -1;
   }
-  if (a.name.title[0].plain_text > b.name.title[0].plain_text) {
+  if (a.name > b.name) {
     return 1;
   }
   return 0;
@@ -24,7 +24,7 @@ export default function AwardeePage({ posts, filter, res }) {
     let awardeeNew = [];
     awardeeTemp.map((item) => {
       if (
-        item.name.title[0].plain_text.toLowerCase().includes(e.toLowerCase())
+        item.name.toLowerCase().includes(e.toLowerCase())
       ) {
         awardeeNew.push(item);
       }
@@ -44,7 +44,7 @@ export default function AwardeePage({ posts, filter, res }) {
     let awardeeTemp = posts;
     let awardeeNew = [];
     awardeeTemp.map((item) => {
-      if (item.Program.multi_select[0].name.includes(e)) {
+      if (item.program.includes(e)) {
         awardeeNew.push(item);
       }
     });
