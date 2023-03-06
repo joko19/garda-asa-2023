@@ -3,10 +3,10 @@ import { MdSchool } from "react-icons/md";
 
 function TotalAwardee() {
   const copyText = [
-    "99 Magister Dalam Negeri",
-    "99 Magister Luar Negeri",
-    "99 Doktor Dalam Negeri",
-    "99 Doktor Luar Negeri",
+    "46 Magister Dalam Negeri",
+    "95 Magister Luar Negeri",
+    "7 Doktor Dalam Negeri",
+    "19 Doktor Luar Negeri",
   ];
   return (
     <section className="flex flex-col sm:flex-row sm:gap-12 gap-4 justify-around sm:px-20 px-4 py-12">

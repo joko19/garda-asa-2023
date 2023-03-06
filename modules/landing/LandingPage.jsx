@@ -46,7 +46,7 @@ function LandingPage() {
       <Header transparent={isTransparent} isNotSticky bgOnly />
       <main>
         <Banner />
-        <TotalAwardee/>
+        {/* <TotalAwardee/> */}
         <StudentArea/>
       </main>
     </>
